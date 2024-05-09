@@ -1,0 +1,53 @@
+<domain xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0' type='kvm'>
+  <name>REPLACEME_NAME</name>
+  <uuid>REPLACEME_UUID</uuid>
+  <metadata>
+    <libosinfo:libosinfo xmlns:libosinfo='http://libosinfo.org/xmlns/libvirt/domain/1.0'>
+      <libosinfo:os id='http://centos.org/centos/8'/>
+    </libosinfo:libosinfo>
+  </metadata>
+  <memory unit='KiB'>REPLACEME_MEMORY</memory>
+  <vcpu placement='static'>4</vcpu>
+  <cpu mode='host-passthrough'>
+    <topology sockets='1' cores='4' threads='4'/>
+  </cpu>
+  <os>
+    <type arch='x86_64' machine='q35'>hvm</type>
+    <loader>REPLACEME_LOADER</loader>
+    <boot dev='hd'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+    <vmport state='off'/>
+    <smm state='on'/>
+  </features>
+  <clock offset='utc'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='no'/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>destroy</on_crash>
+  <pm>
+    <suspend-to-mem enabled='no'/>
+    <suspend-to-disk enabled='no'/>
+  </pm>
+  <devices>
+    <emulator>REPLACEME_QEMU</emulator>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='qcow2'/>
+      <source file='REPLACEME_IMAGE' />
+      <target dev='vda' bus='virtio'/>
+    </disk>
+    <console type='pty'>
+      <log file='REPLACEME_LOG'/>
+      <target type='virtio' port='0'/>
+    </console>
+    <interface type='bridge'>
+      <source bridge='virbr0'/>
+      <model type='virtio'/>
+    </interface>
+  </devices>
+</domain>

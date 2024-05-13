@@ -1,0 +1,47 @@
+
+#
+# artifact.yaml file in below format:
+#
+#    latest-guest-image-<guest_distro>:
+#      source: http://xyz.qcow2.tar.xz
+#      sha256sum: 92d82663d1a3ad7b2c2b2f50b2145e388a48eb6b4e0b767cd94a5cf05394c98f
+#
+#    latest-guest-image-<guest_distro>:
+#      source: https://<a SSL website>/test.qcow2
+#      sha256sum: https://<a SSL website>/test.sha256sum.txt
+#
+#    latest-guest-image-<guest_distro>:
+#      source: file:///home/sample_user/test.qcow2
+#
+# - The field of source URI could be starts with 'http', 'https' for remote file,
+#   or 'file' for local file
+# - The field of sha256sum could:
+#     - a SHA256 string starting with 'http'/'https'
+#     - local guest image file doesn't need sha256sum
+#
+
+# === RHEL guest distro ===
+# Please uncomment below setting for RHEL guest distro
+#
+#latest-guest-image-rhel:
+#  source: http://<your artifactory webserver for tdx guest image>/td-guest-rhel8.qcow2.tar.xz
+#  sha256sum: http://<your artifactory webserver for tdx guest image>/td-guest-rhel8.qcow2.tar.xz.sha256sum
+#latest-guest-kernel-rhel:
+#  source: http://<your artifactory webserver for tdx guest kernel binary>/vmlinuz-rhel8.5
+#  sha256sum: http://<your artifactory webserver for tdx guest kernel binary>/vmlinuz-rhel8.5.sha256sum
+#latest-ai-image-rhel:
+#  source: http://<your artifactory webserver for tdx guest image>/td-guest-rhel8.qcow2.tar.xz
+#  sha256sum: http://<your artifactory webserver for tdx guest image>/td-guest-rhel8.qcow2.tar.xz.sha256sum
+
+# === Ubuntu guest distro ===
+# Please uncomment below setting for Ubuntu guest distro
+#
+#latest-guest-image-ubuntu:
+#  source: http://<your artifactory webserver for tdx guest image>/td-guest-ubuntu-22.04.qcow2.tar.xz
+#  sha256sum: http://<your artifactory webserver for tdx guest image>/td-guest-ubuntu-22.04.qcow2.tar.xz.sha256sum
+#latest-guest-kernel-ubuntu:
+#  source: http://<your artifactory webserver for tdx guest kernel binary>/vmlinuz-jammy
+#  sha256sum: http://<your artifactory webserver for tdx guest kernel binary>/vmlinuz-jammy.sha256sum
+#latest-ai-image-ubuntu:
+#  source: http://<your artifactory webserver for tdx guest image>/td-guest-ubuntu-22.04.qcow2.tar.xz
+#  sha256sum: http://<your artifactory webserver for tdx guest image>/td-guest-ubuntu-22.04.qcow2.tar.xz.sha256sum
